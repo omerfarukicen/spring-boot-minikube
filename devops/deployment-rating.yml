@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rating-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rating-service
+
+  template:
+    metadata:
+      labels:
+        app: rating-service
+    spec:
+      containers:
+        - name: rating-service
+          image: nhatthai/rating-service:latest
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: $PROFILE
+            - name: TZ
+              value: Europe/Istanbul
+          ports:
+            - containerPort: 5000
+              protocol: TCP

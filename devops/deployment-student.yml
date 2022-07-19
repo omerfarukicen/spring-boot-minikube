@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: student-service
+
+  template:
+    metadata:
+      labels:
+        app: student-service
+    spec:
+      containers:
+      - name: student-service
+        image: nhatthai/student-service:latest
+        env:
+         - name: SPRING_PROFILES_ACTIVE
+           value: $PROFILE
+         - name: TZ
+           value: Europe/Istanbul
+        ports:
+        - containerPort: 7000
+          protocol: TCP

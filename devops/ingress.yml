@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+
+spec:
+  tls:
+    - hosts:
+        - test.com
+      secretName: ingress-tls
+  rules:
+    - host: test.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: /student
+            backend:
+              service:
+               name: student-service
+               port:
+                number: 7000
+          - path: /rating
+            pathType: Prefix
+            backend:
+              service:
+                name: rating-service
+                port:
+                  number: 5000

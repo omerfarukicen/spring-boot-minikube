@@ -1,0 +1,25 @@
+
+kubectl create -f ingress.yml --validate=false
+minikube addons enable ingress
+
+
+ 1995  curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+ 1996  sudo install minikube-linux-amd64 /usr/local/bin/minikube
+ 1997  minikube start
+
+ 2001  kubectl get po -A
+ 2002  minikube dashboard
+ 2003  minikube start
+ 2004  wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+ 2005  sudo cp minikube-linux-amd64 /usr/local/bin/minikube
+ 2006  sudo chmod 755 /usr/local/bin/minikube
+ 2007  minikube version
+ 2008  curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+ 2009  chmod +x ./kubectl
+ 2010  sudo mv ./kubectl /usr/local/bin/kubectl
+
+ 2017  minikube start --kubernetes-version=v1.23.8
+ 2018  minikube delete
+ 2019  minikube start --kubernetes-version=v1.23.8
+ 2020  minikube dashboard
+ 2021  minikube start
