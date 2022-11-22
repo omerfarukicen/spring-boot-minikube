@@ -1,28 +1,56 @@
 # Spring And Minikube
-    Ingress Gateway: Simple fanout
+    Ingress Gateway
     Student Service
     Rating Service
-
 
 ## Requirements
     Java: JDK 1.8
     Maven Build
-    Docker
+    Docker 
     Kubernetes: Minikube on local
 
-## Usage
+## Ubuntu Minikube install 
+```
+$ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+$ sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+```
+
+```
+minikube kubectl -- get po -A
+```
+```
+alias kubectl="minikube kubectl --
+```
+
+#### Some Commands
+```
+kubectl get nodes 
+kubectl get pod
+minikube ssh
+minikube dashboard
+```
+#### docker image for minikube
+
+    eval $(minikube docker-env)
+
 
 #### Build Student Service
 ```
-$ cd rating-service
+$ cd student-service
 $ mvn package
 ```
 
+
+
 #### Create docker images for Student Service and push Docker Hub
 ```
-$ cd student-service
-$ docker build -t nhatthai/student-service .
-$ docker push nhatthai/student-service
+$ docker build -t student-service .
+$ docker push $(minikube ip):5000/student-service:latest
+```
+is there outside repository?
+```
+$ docker push student-service
 ```
 
 #### Build Rating Service
@@ -33,9 +61,8 @@ $ mvn package
 
 #### Create docker images for Rating Service and push Docker Hub
 ```
-$ cd rating-service
-$ docker build -t nhatthai/rating-service .
-$ docker push nhatthai/rating-service
+$ docker build -t rating-service .
+$ docker push $(minikube ip):5000/rating-service:latest
 ```
 
 #### Start Minikube
