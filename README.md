@@ -203,13 +203,3 @@ $ minikube ip
 192.168.99.100 mysite.com
 ```
 Check browser: `http://mysite.com/student/hi`
-
-
-## Reference
-[Microservices with kubernetes and docker](https://piotrminkowski.wordpress.com/2017/03/31/microservices-with-kubernetes-and-docker/)
-
-[Setting up Ingress on Minikube](https://medium.com/@Oskarr3/setting-up-ingress-on-minikube-6ae825e98f82)
-
-[Basic Authentication Ingress](https://github.com/kubernetes/contrib/tree/master/ingress/controllers/nginx/examples/auth)
-
-[Nginx Ingress Controller](http://rahmonov.me/posts/nginx-ingress-controller/)
