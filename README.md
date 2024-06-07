@@ -34,6 +34,18 @@ minikube dashboard
 
     eval $(minikube docker-env)
 
+throuble : Failed to initialize: unable to resolve docker endpoint: open /home/omericen/.minikube/certs/ca.pem: permission denied
+sudo nano /var/lib/snapd/apparmor/profiles/snap.docker.docker
+add :
+owner @{HOME}/.minikube/certs/* r,
+
+save and run on terminal-
+apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap.docker.docker
+
+eval $(minikube docker-env)
+
+
+
 
 #### Build Student Service
 ```
